@@ -50,7 +50,7 @@ const Reserve = ({setOpen, hotelId}) => {
     const handleClick = async () => {
         try {
           await Promise.all(
-            selectedRooms.map((roomId) => {
+            selectedRooms?.map((roomId) => {
               const res = axios.put(`/rooms/availability/${roomId}`, {
                 dates: allDates,
               });
@@ -82,7 +82,7 @@ const Reserve = ({setOpen, hotelId}) => {
                         <div className="rSelectRooms">
 
                         {
-                            item.roomNumbers.map((roomNumber) =>
+                            item.roomNumbers?.map((roomNumber) =>
                                 <div className="room">
                                 <label>{roomNumber.number}</label>
                                 <input type="checkbox" value={roomNumber._id} onChange={handleSelect}
