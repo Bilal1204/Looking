@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import {createError} from './error.js'
+// import {MONGO,JWT} from '../config/keys.js'
 
 export const verifyToken = (req,res,next) =>{
     const token = req.cookies.access_token

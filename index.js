@@ -8,6 +8,12 @@ import hotelsRoute from './routes/hotel.js'
 import roomsRoute from './routes/rooms.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors';
+import path from 'path'
+// import {MONGO,JWT} from './config/keys.js'
+import * as url from 'url';
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
 
 const app = express()
 app.use(cors())
@@ -47,8 +53,18 @@ app.use((err,req,res,next) =>{
     });
 });
 
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
+
 app.listen(8800,()=>{
     connect()
-    console.log("Server Running on port 8080")
+    console.log("Server Running on port 8800")
 })
 
