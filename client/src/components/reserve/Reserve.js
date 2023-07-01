@@ -12,7 +12,7 @@ const Reserve = ({setOpen, hotelId}) => {
     const navigate = useNavigate()
 
     const {data, loading, error} = useFetch(`/hotels/room/${hotelId}`)
-    
+    // data = Array.from(data);
     const [selectedRooms, setSelectedRooms] = useState([])
     const {dates} = useContext(SearchContext)
 
@@ -69,7 +69,7 @@ const Reserve = ({setOpen, hotelId}) => {
             <FontAwesomeIcon icon={faCircleXmark} className='rClose' onClick={()=>setOpen(false)}/>
             <span>Select your rooms:</span>
             {
-                data.map(item =>(
+                data?.map(item =>(
                     <div className="rItem">
                         <div className="rItemInfo">
                             <div className="rTitle">{item.title}</div>
