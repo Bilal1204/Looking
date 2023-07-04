@@ -3,9 +3,11 @@ import './featuredProperties.css'
 
 const FeaturedProperties = () => {
 
-  const {data, loading, error} = useFetch("/hotels?featured=true")
+  const {data, loading, error} = useFetch("/api/hotels?featured=true")
   // data = Array.from(data);
-  console.log(typeof(data))
+  // console.log(typeof(data))
+
+  // console.log(data)
 
   return (
     <div className='fp'>

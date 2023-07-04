@@ -11,7 +11,7 @@ const Reserve = ({setOpen, hotelId}) => {
 
     const navigate = useNavigate()
 
-    const {data, loading, error} = useFetch(`/hotels/room/${hotelId}`)
+    const {data, loading, error} = useFetch(`/api/hotels/room/${hotelId}`)
     // data = Array.from(data);
     const [selectedRooms, setSelectedRooms] = useState([])
     const {dates} = useContext(SearchContext)
@@ -51,7 +51,7 @@ const Reserve = ({setOpen, hotelId}) => {
         try {
           await Promise.all(
             selectedRooms?.map((roomId) => {
-              const res = axios.put(`/rooms/availability/${roomId}`, {
+              const res = axios.put(`/api/rooms/availability/${roomId}`, {
                 dates: allDates,
               });
               console.log(res)

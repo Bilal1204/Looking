@@ -11,8 +11,8 @@ const useFetch = (url) => {
       setLoading(true);
       try {
         const res = await axios.get(url);
-        const temp = Array.from(res.data);
-        setData(temp);
+        // console.log(res)
+        setData(res.data);
       } catch (err) {
         setError(err);
       }
@@ -20,19 +20,20 @@ const useFetch = (url) => {
     };
     fetchData();
   }, [url]);
-
+  
   const reFetch = async () => {
     setLoading(true);
     try {
       const res = await axios.get(url);
-      const temp = Array.from(res.data);
-        setData(temp);
+      // const temp = Array.from(res.data);
+      setData(res.data);
     } catch (err) {
       setError(err);
     }
     setLoading(false);
   };
-//   console.log({data})
+  
+  // console.log({data})
   return { data, loading, error, reFetch };
 };
 
