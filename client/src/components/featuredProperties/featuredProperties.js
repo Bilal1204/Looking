@@ -7,14 +7,14 @@ const FeaturedProperties = () => {
   // data = Array.from(data);
   // console.log(typeof(data))
 
-  // console.log(data)
+  // console.log(Object.values(data))
 
   return (
     <div className='fp'>
         {loading ? "Loading" : 
         <>
         {
-          data?.map((item,i) =>
+          Object.values(data)?.map((item,i) =>
         <div className="fpItem" key={i}>
         <img className='fpImg' src={"https://cf.bstatic.com/xdata/images/hotel/square600/187853972.webp?k=dd753431cf4b638642614dc060512d832d24f3249eef30b9a5f18601d2ac5635&o="} alt="" />
         <span className="fpName">{item.name}</span>
