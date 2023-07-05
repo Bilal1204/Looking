@@ -4,17 +4,17 @@ import './featuredProperties.css'
 const FeaturedProperties = () => {
 
   const {data, loading, error} = useFetch("/api/hotels?featured=true")
-  // data = Array.from(data);
-  // console.log(typeof(data))
-
-  // console.log(Object.values(data))
+ 
+  // const arr = Object.entries(data)
+  // console.log(typeof(arr))
+  // console.log(data)
 
   return (
     <div className='fp'>
         {loading ? "Loading" : 
         <>
         {
-          Object.values(data)?.map((item,i) =>
+        data?.map((item,i) =>
         <div className="fpItem" key={i}>
         <img className='fpImg' src={"https://cf.bstatic.com/xdata/images/hotel/square600/187853972.webp?k=dd753431cf4b638642614dc060512d832d24f3249eef30b9a5f18601d2ac5635&o="} alt="" />
         <span className="fpName">{item.name}</span>

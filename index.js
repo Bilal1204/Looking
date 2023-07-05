@@ -13,6 +13,7 @@ import path from 'path'
 import * as url from 'url';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const port = process.env.port || 8800
 
 
 const app = express()
@@ -63,7 +64,7 @@ app.get("*", function (_, res) {
   );
 });
 
-app.listen(8800,()=>{
+app.listen(port,()=>{
     connect()
     console.log("Server Running on port 8800")
 })
