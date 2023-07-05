@@ -37,6 +37,8 @@ mongoose.connection.on("connected",()=>{
     console.log("MongoDB Connected")
 })
 
+connect()
+
 //MiddleWares
 app.use('/api/auth',authRoute)
 app.use('/api/users',usersRoute)
@@ -65,7 +67,6 @@ app.get("*", function (_, res) {
 });
 
 app.listen(port,()=>{
-    connect()
     console.log("Server Running on port 8800")
 })
 
